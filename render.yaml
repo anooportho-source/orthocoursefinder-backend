@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ortho-course-finder-api
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: ADMIN_KEY
+        generateValue: true
+      - key: DATABASE_PATH
+        value: /var/data/courses.db
+    disk:
+      name: course-db
+      mountPath: /var/data
+      sizeGB: 1
